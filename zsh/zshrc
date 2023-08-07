@@ -67,8 +67,8 @@ setopt hist_ignore_all_dups
 #--------------------------------------------------------------------------
 
 alias vim="nvim"
-alias copy="xclip -selection clipboard"
-alias paste="xclip -o -selection clipboard"
+alias copy="pbcopy -selection clipboard"
+alias paste="pbpaste -o -selection clipboard"
 alias cat="bat"
 
 # Git
