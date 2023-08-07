@@ -20,6 +20,7 @@ brew "git-delta"
 ## langs
 brew "rust"
 brew "go"
+brew "lua"
 brew "nodejs"
 ## utils
 brew "gh"
@@ -43,6 +44,7 @@ brew "tre"
 brew "exa"
 brew "tokei"
 brew "sd"
+brew "luacheck"
 
 # terminal
 cask "kitty"
