@@ -10,6 +10,7 @@ vim.opt.title = true
 vim.opt.termguicolors = true
 vim.opt.spell = true
 vim.opt.ignorecase = true
+vim.opt.textwidth = 80
 vim.opt.smartcase = true
 vim.opt.wrap = false
 vim.opt.breakindent = true -- maintain indent when wrapping indented lines
