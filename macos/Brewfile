@@ -65,6 +65,7 @@ cask "betterdisplay"
 cask "firefox"
 cask "signal"
 cask "mimestream"
+cask "zoom"
 
 # fonts
 cask "font-jetbrains-mono-nerd-font"

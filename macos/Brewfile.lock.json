@@ -1708,6 +1708,12 @@
         "options": {
           "full_name": "mimestream"
         }
+      },
+      "zoom": {
+        "version": "5.15.5.20753",
+        "options": {
+          "full_name": "zoom"
+        }
       }
     }
   },
