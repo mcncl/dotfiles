@@ -1,0 +1,64 @@
+tap "homebrew/core"
+tap "homebrew/bundle"
+
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/cask-fonts"
+
+# nvim
+brew "neovim", args: ["HEAD"]
+brew "universal-ctags"
+
+# shell
+brew "zsh"
+brew "tmux"
+brew "reattach-to-user-namespace"
+## git
+brew "git"
+brew "lazygit"
+brew "git-delta"
+## langs
+brew "rust"
+brew "go"
+brew "nodejs"
+## utils
+brew "gh"
+brew "git"
+brew "lazygit"
+brew "moreutils"
+brew "gnupg"
+brew "openssh"
+brew "findutils"
+brew "asdf"
+brew "grep"
+brew "ripgrep"
+brew "fd"
+brew "bat"
+brew "tree"
+brew "bottom"
+brew "jq"
+brew "wget"
+brew "tealdeer"
+brew "tre"
+brew "exa"
+brew "tokei"
+brew "sd"
+
+# terminal
+cask "kitty"
+cask "warp"
+
+# apps
+cask "raycast"
+cask "discord"
+cask "slack"
+cask "spotify"
+cask "hiddenbar"
+cask "1password"
+cask "betterdisplay"
+cask "firefox"
+cask "signal"
+cask "mimestream"
+
+# fonts
+cask "font-jetbrains-mono-nerd-font"

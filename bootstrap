@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Ask for the administrator password upfront
+sudo -v
+
+# To change computer name settings on a mac
+# sudo scutil --set ComputerName computername
+# sudo scutil --set HostName hostname
+# sudo scutil --set LocalHostName localhostname
+
+# setup brew
+# brew automatically install and updated xcode
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# print commands
+# do this after setup brew else brew will print the shell script
+set -x
+
+# setup macos defaults
+./macos/defaults.sh
+
+# set homebrew's zsh as the default shell for everyone
+sh -c "echo $(which zsh) >> /etc/shells"
+chsh -s $(which zsh)
+
+BREW_PREFIX=$(brew --prefix)
+
+# setup brew
+brew bundle --file macos/Brewfile
+
+ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
+
+rm -rf $HOME/.config/nvim
+ln -s $DOTFILES/nvim $HOME/.config/nvim
+
+rm -rf $HOME/.config/kitty
+ln -s $DOTFILES/kitty $HOME/.config/kitty
+
+rm -rf $HOME/.warp
+ln -s $DOTFILES/warp $HOME/.warp
+
+ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+
+ln -sf $DOTFILES/git/gitconfig $HOME/.gitconfig
+
+ln -sf $DOTFILES/git/gitignore_global $HOME/.gitignore_global
+
+mkdir -p $HOME/.local/bin
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
