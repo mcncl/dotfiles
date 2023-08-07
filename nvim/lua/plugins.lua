@@ -183,6 +183,15 @@ use({
   end,
 })
 
+use({
+  'akinsho/bufferline.nvim',
+  requires = 'kyazdani42/nvim-web-devicons',
+  after = 'gruvbox-material',
+  config = function()
+    require('plugins.bufferline')
+  end,
+})
+
 ---------------------
 --- LSP Config
 ---
