@@ -65,6 +65,7 @@ cask "betterdisplay"
 cask "firefox"
 cask "signal"
 cask "mimestream"
+cask "rectangle"
 cask "zoom"
 
 # fonts
