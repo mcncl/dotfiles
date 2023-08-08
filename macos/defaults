@@ -20,6 +20,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
+# Mute the start up chime
+sudo nvram StartupMute=%01
+
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
