@@ -1720,6 +1720,12 @@
         "options": {
           "full_name": "rectangle"
         }
+      },
+      "visual-studio-code": {
+        "version": "1.81.0",
+        "options": {
+          "full_name": "visual-studio-code"
+        }
       }
     }
   },

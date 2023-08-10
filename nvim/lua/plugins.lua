@@ -192,6 +192,12 @@ use({
   end,
 })
 
+use({"ellisonleao/glow.nvim",
+  config = function()
+    require("glow").setup() 
+  end
+})
+
 ---------------------
 --- LSP Config
 ---

@@ -67,6 +67,7 @@ cask "signal"
 cask "mimestream"
 cask "rectangle"
 cask "zoom"
+cask "visual-studio-code"
 
 # fonts
 cask "font-jetbrains-mono-nerd-font"

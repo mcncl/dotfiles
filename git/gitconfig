@@ -90,7 +90,7 @@
 [pull]
     rebase = false
 [init]
-    defaultBranch = main
+	defaultBranch = main
 
 [user]
 	email = git@benmcnicholl.com
