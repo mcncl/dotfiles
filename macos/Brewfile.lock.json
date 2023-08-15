@@ -11,7 +11,7 @@
         "revision": "20abdde0be79fd165ea82f9ee6ac8b5ad451676a"
       },
       "homebrew/cask-versions": {
-        "revision": "8d1b544d08ef99555604e6a85f543ac1fab9cd14"
+        "revision": "1867fdd4dc0567a61e162d13319660eaa8bb00f4"
       },
       "homebrew/cask-fonts": {
         "revision": "8b8e56d013a4663a52ddee71aaa46ea1b06fc024"
@@ -1632,7 +1632,7 @@
         }
       },
       "raycast": {
-        "version": "1.56.3",
+        "version": "1.57.0",
         "options": {
           "full_name": "raycast"
         }
@@ -1698,7 +1698,7 @@
         }
       },
       "signal": {
-        "version": "6.27.1",
+        "version": "6.28.0",
         "options": {
           "full_name": "signal"
         }
@@ -1725,6 +1725,12 @@
         "version": "1.81.0",
         "options": {
           "full_name": "visual-studio-code"
+        }
+      },
+      "loom": {
+        "version": "0.165.0",
+        "options": {
+          "full_name": "loom"
         }
       }
     }
