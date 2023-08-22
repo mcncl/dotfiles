@@ -71,7 +71,7 @@ alias vim="nvim"
 alias copy="pbcopy -selection clipboard"
 alias paste="pbpaste -o -selection clipboard"
 alias cat="bat"
-
+  
 # Git
 alias g="git"
 alias gs="git s"
@@ -83,9 +83,18 @@ alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "
 alias d="docker"
 alias dc="docker compose"
 
+# Terraform
+alias tf_tk="TF_ACC=1 BUILDKITE_ORGANIZATION_SLUG=testkite BUILDKITE_API_TOKEN=${TESTKITE_TOKEN} terraform"
+alias tf_test="TF_ACC=1 BUILDKITE_ORGANIZATION_SLUG=buildkite-terraform-provider-test-org BUILDKITE_API_TOKEN=${TERRAFORM_TOKEN} go test -v ./... -run"
+
 open () {
     xdg-open $* > /dev/null 2>&1
 }
+
+
+#--------------------------------------------------------------------------
+# Productivity
+#--------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------
 # Miscellaneous

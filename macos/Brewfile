@@ -69,6 +69,7 @@ cask "rectangle"
 cask "loom"
 cask "zoom"
 cask "visual-studio-code"
+brew install --cask private-internet-access
 
 # fonts
 cask "font-jetbrains-mono-nerd-font"
