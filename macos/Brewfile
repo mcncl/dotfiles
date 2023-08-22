@@ -51,7 +51,6 @@ brew "sd"
 brew "luacheck"
 
 # terminal
-cask "kitty"
 cask "warp"
 
 # apps
