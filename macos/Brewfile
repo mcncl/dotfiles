@@ -18,10 +18,10 @@ brew "git"
 brew "lazygit"
 brew "git-delta"
 ## langs
-brew "rust"
 brew "go"
 brew "lua"
 brew "nodejs"
+brew "rustup-init"
 
 ## utils
 brew "gh"
@@ -34,6 +34,7 @@ brew "findutils"
 brew "asdf"
 brew "grep"
 brew "grex"
+brew "emacs"
 brew "ripgrep"
 brew "fd"
 brew "bat"
@@ -49,6 +50,8 @@ brew "exa"
 brew "tokei"
 brew "sd"
 brew "luacheck"
+brew "docker"
+brew "colima"
 
 # terminal
 cask "warp"
@@ -70,6 +73,7 @@ cask "zoom"
 cask "visual-studio-code"
 cask "private-internet-access"
 cask "plex"
+cask "amethyst"
 
 # fonts
 cask "font-jetbrains-mono-nerd-font"
