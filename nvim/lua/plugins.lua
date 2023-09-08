@@ -222,6 +222,13 @@ use({
 })
 
 use({
+ 'simrat39/rust-tools.nvim',
+ config = function()
+   require('plugins.rust-tools')
+ end
+})
+
+use({
   'hrsh7th/nvim-cmp',
   requires = {
     'L3MON4D3/LuaSnip',
@@ -247,9 +254,9 @@ use({
 })
 
 use({
-  'jose-elias-alvarez/null-ls.nvim',
+  'williamboman/mason.nvim',
   config = function()
-    require('plugins.null-ls')
+    require('plugins.mason')
   end,
 })
 

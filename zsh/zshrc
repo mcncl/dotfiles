@@ -83,6 +83,7 @@ alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "
 # Docker
 alias d="docker"
 alias dc="docker compose"
+alias build="docker-buildx"
 
 # Terraform
 alias tf_tk="TF_ACC=1 BUILDKITE_ORGANIZATION_SLUG=testkite BUILDKITE_API_TOKEN=${TESTKITE_TOKEN} terraform"

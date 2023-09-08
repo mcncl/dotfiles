@@ -95,3 +95,8 @@
 [user]
 	email = git@benmcnicholl.com
 	name = Ben McNicholl
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK2pglUyR9DyLqTy8Z/3WkP1lp/1HMZqZx7epdP1e7jL
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign

@@ -7,9 +7,11 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,longest,preview'
+vim.o.completeopt = 'menuone,noinsert,noselect'
+vim.opt.shortmess = vim.opt.shortmess + "c"
 
 cmp.setup({
+  preselect = cmp.PreselectMode.None,
   experimental = {
     ghost_text = true,
   },
@@ -31,6 +33,8 @@ cmp.setup({
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+    ['<Tab>'] = cmp.mapping.select_next_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),

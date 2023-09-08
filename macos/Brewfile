@@ -51,7 +51,10 @@ brew "tokei"
 brew "sd"
 brew "luacheck"
 brew "docker"
+brew "docker-buildx"
 brew "colima"
+brew "httpie"
+brew "dog"
 
 # terminal
 cask "warp"
