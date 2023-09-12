@@ -145,6 +145,12 @@ _G.packer_plugins = {
     path = "/Users/bmc/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["neoscroll.nvim"] = {
+    config = { "\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14neoscroll\frequire\0" },
+    loaded = true,
+    path = "/Users/bmc/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
+    url = "https://github.com/karb94/neoscroll.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/bmc/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -207,6 +213,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for gruvbox-material]], true)
 try_loadstring("\27LJ\2\n{\0\0\3\0\4\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\1K\0\1\0!colorscheme gruvbox-material/let g:gruvbox_material_background = \"soft\"\bcmd\bvim\0", "config", "gruvbox-material")
 time([[Config for gruvbox-material]], false)
+-- Config for: neoscroll.nvim
+time([[Config for neoscroll.nvim]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14neoscroll\frequire\0", "config", "neoscroll.nvim")
+time([[Config for neoscroll.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

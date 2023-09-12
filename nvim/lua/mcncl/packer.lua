@@ -58,4 +58,10 @@ use {
 use("folke/zen-mode.nvim")
 use("github/copilot.vim")
 use("laytan/cloak.nvim")
+use({
+  'karb94/neoscroll.nvim',
+  config = function()
+    require('neoscroll').setup()
+  end,
+})
 end)

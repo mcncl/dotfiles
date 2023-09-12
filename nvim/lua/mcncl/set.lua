@@ -11,7 +11,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
-
+vim.opt.confirm = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -23,10 +23,13 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:2"
 vim.opt.isfname:append("@-@")
-
-vim.opt.updatetime = 50
-
+vim.opt.wildmode = 'longest:full,full'
+vim.opt.showmode = false
+vim.opt.updatetime = 4001 -- Set updatime to 1ms longer than the default to prevent polyglot from changing it
+vim.opt.redrawtime = 10000 -- Allow more time for loading syntax on large files
+vim.opt.exrc = true
+vim.opt.secure = true
 vim.opt.colorcolumn = "80"
 
