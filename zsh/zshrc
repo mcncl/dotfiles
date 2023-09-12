@@ -85,6 +85,10 @@ alias d="docker"
 alias dc="docker compose"
 alias build="docker-buildx"
 
+# Cargo
+alias c="cargo"
+alias cn="cargo new"
+
 # Terraform
 alias tf_tk="TF_ACC=1 BUILDKITE_ORGANIZATION_SLUG=testkite BUILDKITE_API_TOKEN=${TESTKITE_TOKEN} terraform"
 alias tf_test="TF_ACC=1 BUILDKITE_ORGANIZATION_SLUG=buildkite-terraform-provider-test-org BUILDKITE_API_TOKEN=${TERRAFORM_TOKEN} go test -v ./... -run"
