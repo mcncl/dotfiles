@@ -54,6 +54,7 @@ brew "docker-buildx"
 brew "colima"
 brew "httpie"
 brew "dog"
+brew "bat"
 
 # terminal
 cask "warp"
