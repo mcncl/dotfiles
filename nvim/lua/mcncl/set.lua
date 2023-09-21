@@ -1,5 +1,4 @@
-vim.opt.guicursor = ""
-
+--vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -27,9 +26,9 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.wildmode = 'longest:full,full'
 vim.opt.showmode = false
-vim.opt.updatetime = 4001 -- Set updatime to 1ms longer than the default to prevent polyglot from changing it
-vim.opt.redrawtime = 10000 -- Allow more time for loading syntax on large files
+vim.opt.updatetime = 4001
+vim.opt.redrawtime = 10000
 vim.opt.exrc = true
 vim.opt.secure = true
-vim.opt.colorcolumn = "80"
 
+vim.opt.shortmess:append({ I = true })

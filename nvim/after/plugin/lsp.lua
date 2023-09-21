@@ -4,6 +4,7 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
+  'gopls',
   'rust_analyzer',
 })
 
@@ -53,6 +54,14 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+require('lspconfig').gopls.setup({
+    settings = {
+        gopls = {
+            gofumpt = true,
+        }
+    }
+})
 
 vim.diagnostic.config({
     virtual_text = true
