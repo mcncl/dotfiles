@@ -63,6 +63,8 @@ require('lspconfig').gopls.setup({
     }
 })
 
+require'lspconfig'.ocamllsp.setup{}
+
 vim.diagnostic.config({
     virtual_text = true
 })

@@ -1,4 +1,5 @@
---vim.opt.guicursor = ""
+-- Set cursor to phat mode
+vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 

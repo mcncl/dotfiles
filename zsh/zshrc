@@ -39,7 +39,6 @@ path=(
     $HOME/.local/bin
     $HOME/go/bin
     $HOME/.cargo/bin
-    $HOME/.config/emacs/bin
     $path
 )
 
@@ -54,7 +53,6 @@ zstyle ':completion:*:complete:(cd|pushd):*' tag-order \
 export EDITOR=vim
 export GIT_EDITOR=vim
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
-export ARTISAN_OPEN_ON_MAKE_EDITOR=nvr
 export FZF_DEFAULT_COMMAND='ag -u -g ""'
 
 unsetopt sharehistory
@@ -83,7 +81,7 @@ alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "
 # Docker
 alias d="docker"
 alias dc="docker compose"
-alias build="docker-buildx"
+alias build="docker buildx build"
 
 # Cargo
 alias c="cargo"
@@ -119,8 +117,5 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 ### Fix slowness of pastes
 
-if [ -e /home/jess/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jess/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
-    ~/dotfiles/scripts/login.sh
-fi
+# opam configuration
+[[ ! -r /Users/bmc/.opam/opam-init/init.zsh ]] || source /Users/bmc/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
