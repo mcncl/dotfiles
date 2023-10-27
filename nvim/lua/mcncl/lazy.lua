@@ -30,12 +30,16 @@ require("lazy").setup({
     { 'jessarcher/vim-heritage' },
     -- Add, change, and delete surrounding text.
     { 'tpope/vim-surround' },
-
     { 'mbbill/undotree' },
     { 'folke/zen-mode.nvim' },
-    { 'github/copilot.vim' },
     { 'farmergreg/vim-lastplace' },
+    { import = 'mcncl.configs.commentary' },
+    { import = 'mcncl.configs.indent' },
     { import = 'mcncl.configs.cmp' },
+    { import = 'mcncl.configs.split-join' },
+    { import = 'mcncl.configs.pasta' },
     { import = 'mcncl.configs.treesitter' }, 
+    { import = 'mcncl.configs.lualine' }, 
     { import = 'mcncl.configs.lsp' },
+    { import = 'mcncl.configs.bufferline' },
 })

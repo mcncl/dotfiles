@@ -1,67 +1,81 @@
 return {
-  'neovim/nvim-lspconfig',
-  dependencies = {
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
-    'b0o/schemastore.nvim',
-    'jayp0521/mason-null-ls.nvim',
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
+    lazy = true,
+    config = false,
+    init = function()
+      -- Disable automatic setup, we are doing it manually
+      vim.g.lsp_zero_extend_cmp = 0
+      vim.g.lsp_zero_extend_lspconfig = 0
+    end,
   },
-  config = function()
-    -- Setup Mason to automatically install LSP servers
-    require('mason').setup()
-    require('mason-lspconfig').setup({ automatic_installation = true })
+  {
+    'williamboman/mason.nvim',
+    lazy = false,
+    config = true,
+  },
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
+  -- Autocompletion
+  {
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
+    dependencies = {
+      {'L3MON4D3/LuaSnip'},
+    },
+    config = function()
+      -- Here is where you configure the autocompletion settings.
+      local lsp_zero = require('lsp-zero')
+      lsp_zero.extend_cmp()
 
-    -- Go
-    require('lspconfig').gopls.setup({
-        settings = {
-            gopls = {
-                gofumpt = true,
-            }
+      -- And you can configure cmp even more, if you want to.
+      local cmp = require('cmp')
+      local cmp_action = lsp_zero.cmp_action()
+
+      cmp.setup({
+        formatting = lsp_zero.cmp_format(),
+        mapping = cmp.mapping.preset.insert({
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-d>'] = cmp.mapping.scroll_docs(4),
+          ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+          ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+        })
+      })
+    end
+  },
+
+  -- LSP
+  {
+    'neovim/nvim-lspconfig',
+    cmd = {'LspInfo', 'LspInstall', 'LspStart'},
+    event = {'BufReadPre', 'BufNewFile'},
+    dependencies = {
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'williamboman/mason-lspconfig.nvim'},
+    },
+    config = function()
+      -- This is where all the LSP shenanigans will live
+      local lsp_zero = require('lsp-zero')
+      lsp_zero.extend_lspconfig()
+
+      lsp_zero.on_attach(function(client, bufnr)
+        -- see :help lsp-zero-keybindings
+        -- to learn the available actions
+        lsp_zero.default_keymaps({buffer = bufnr})
+      end)
+
+      require('mason-lspconfig').setup({
+        ensure_installed = {},
+        handlers = {
+          lsp_zero.default_setup,
+          lua_ls = function()
+            -- (Optional) Configure lua language server for neovim
+            local lua_opts = lsp_zero.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
+          end,
         }
-    })
-
-    -- Rust
-    require('lspconfig').rust_analyzer.setup{}
-
-    -- Vue, JavaScript, TypeScript
-    require('lspconfig').volar.setup({
-      on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-      end,
-      capabilities = capabilities,
-      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-    })
-
-    -- Keymaps
-    vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
-    vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-    vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-    vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>')
-    vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-    vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
-    vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>')
-    vim.keymap.set('n', '<Leader>lr', ':LspRestart<CR>', { silent = true })
-    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-    vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-
-    -- Commands
-    vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({ timeout_ms = 5000 }) end, {})
-
-    -- Diagnostic configuration
-    vim.diagnostic.config({
-      virtual_text = false,
-      float = {
-        source = true,
-      }
-    })
-
-    -- Sign configuration
-    vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
-    vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
-    vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
-    vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
-  end,
+      })
+    end
+  }
 }

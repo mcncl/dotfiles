@@ -21,6 +21,8 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
+vim.keymap.set('v', 'y', 'myy`y')
+vim.keymap.set('v', 'Y', 'myY`y')
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
